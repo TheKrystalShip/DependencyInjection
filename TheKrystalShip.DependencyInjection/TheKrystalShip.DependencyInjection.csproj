@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Heisenberg</Authors>
+    <Description>A static Dependency Injection IoC Container library</Description>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>c#, dependency injection, ioc</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Copyright>MIT</Copyright>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/TheKrystalShip/DependencyInjection</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/TheKrystalShip/DependencyInjection</RepositoryUrl>
+    <Company>TheKrystalShip</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+</Project>

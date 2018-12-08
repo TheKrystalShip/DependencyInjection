@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheKrystalShip.DependencyInjection", "TheKrystalShip.DependencyInjection\TheKrystalShip.DependencyInjection.csproj", "{4A0607B7-A387-4F91-9776-BFA289CC6CF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A0607B7-A387-4F91-9776-BFA289CC6CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A0607B7-A387-4F91-9776-BFA289CC6CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A0607B7-A387-4F91-9776-BFA289CC6CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A0607B7-A387-4F91-9776-BFA289CC6CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8D75835-8956-4EFC-B2FD-6B664F556AAE}
+	EndGlobalSection
+EndGlobal
