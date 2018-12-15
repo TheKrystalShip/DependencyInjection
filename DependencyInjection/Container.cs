@@ -13,7 +13,7 @@ namespace TheKrystalShip.DependencyInjection
 
         public static void Add<T>() where T : class
         {
-            Add(typeof(T));
+            _serviceResolver.Register<T>();
         }
 
         public static void Add<T>(T type) where T : class

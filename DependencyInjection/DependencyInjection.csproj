@@ -5,7 +5,7 @@
     <Authors>Heisenberg</Authors>
     <Description>A static Dependency Injection IoC Container library</Description>
     <RepositoryType>GIT</RepositoryType>
-    <PackageTags>c#, dependency injection, ioc</PackageTags>
+    <PackageTags>c#, dependency-injection, ioc</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
     <Copyright>MIT</Copyright>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
@@ -13,6 +13,9 @@
     <RepositoryUrl>https://github.com/TheKrystalShip/DependencyInjection</RepositoryUrl>
     <Company>TheKrystalShip</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyName>TheKrystalShip.DependencyInjection</AssemblyName>
+    <RootNamespace>TheKrystalShip.DependencyInjection</RootNamespace>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>

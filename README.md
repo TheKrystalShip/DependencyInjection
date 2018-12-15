@@ -1,12 +1,12 @@
 # TheKrystalShip.DependencyInjection
 
-This is a dependency injection ioc container library.
+This is a dependency injection IoC container library.
 
-It exposes one static `Container` class which is the main way to register and retrieve types into the IoC container.
-
-There's also two interfaces in case you wish to implement your own `IServiceResolver` and `IDependencyInjector`.
+It exposes one static `Container` class which is the main way to register and retrieve types into and from the IoC container.
 
 Register all types at the program's entrypoint:
+
+> All services register as singletons
 
 ```cs
 public class Program
@@ -14,12 +14,78 @@ public class Program
     public static void Main(string[] args)
     {
         // ...
-        Container.Add<MyInterface, MyImplementation>();
+        // Decoupled registration
+        Container.Add<IMyInterface, MyImplementation>();
+
+        // Single type registration
+        Container.Add<MyImplementation>();
+
+        // Instantiated registration
+        Container.Add<MyInterface>(myImplementationInstance);
     }
 }
 ```
 
+Retrieve your services later on in the call stack:
+
+```cs
+public class MySampleClass
+{
+    private readonly IMyInterface _myInterface;
+
+    public MySampleClass()
+    {
+        _myInterface = Container.Get<IMyInterface>(); // => MyImplementation instance registered before;
+    }
+}
+```
+
+If a service has depenencies, the will be resolved automatically:
+
+```cs
+public class MyDependency() { ... }
+
+public class MyService
+{
+    private readonly MyDependency _myDependency;
+
+    public MyService(MyDependency myDependency)
+    {
+        _myDependency = myDependency;
+    }
+
+    public int DoSomething()
+    {
+        return _myDependency.SomeMethod();
+    }
+}
+```
+
+Calling the service from the `Container` will trigger the dependency injection:
+
+```cs
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        // Make sure both types are registered into the container
+        Container.Add<MyDependency>();
+        Container.Add<MyService>();
+
+        // ...
+
+        MyService myService = Container.Get<MyService>();
+
+        // myService will have an instance of `MyDependency` injected into it
+        int result = myService.DoSomething();
+    }
+}
+```
+
+> The library also offers two interfaces (`IServiceResolver` and `IDependencyInjector`) if you wish to make your own implementation.
+
 # License
+
 ```plaintext
 MIT License
 
