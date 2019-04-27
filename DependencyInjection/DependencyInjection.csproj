@@ -8,14 +8,24 @@
     <PackageTags>c#, dependency-injection, ioc</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
     <Copyright>MIT</Copyright>
-    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/TheKrystalShip/DependencyInjection</PackageProjectUrl>
     <RepositoryUrl>https://github.com/TheKrystalShip/DependencyInjection</RepositoryUrl>
     <Company>TheKrystalShip</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <AssemblyName>TheKrystalShip.DependencyInjection</AssemblyName>
     <RootNamespace>TheKrystalShip.DependencyInjection</RootNamespace>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
+    <PackageReleaseNotes>Added option to register a single instance into the Container without having to explicitly specify the type.
+Added comments to the Container methods.</PackageReleaseNotes>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
