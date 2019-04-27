@@ -1,7 +1,5 @@
 using DependencyInjection.Tests.Samples;
 
-using System;
-
 using TheKrystalShip.DependencyInjection;
 
 using Xunit;
@@ -15,55 +13,59 @@ namespace DependencyInjection.Tests
         {
             Container.Add<SampleClass>();
 
-            var sample = Container.Get<SampleClass>();
+            SampleClass sample = Container.Get<SampleClass>();
 
             Assert.NotNull(sample);
             Assert.Equal(1, sample.DoSomething());
+
+            Container.Clear();
         }
 
         [Fact]
         public void CanRetrieveDecoupledType()
         {
-            try
-            {
-                Container.Add<ISampleInterface, SampleClassWithInterface>();
-            }
-            catch (InvalidOperationException)
-            {
-                // Exception because other method might have registered
-                // the service before this test was run
-            }
+            Container.Add<ISampleInterface, SampleClassWithInterface>();
 
-            var sample = Container.Get<ISampleInterface>();
+            ISampleInterface sample = Container.Get<ISampleInterface>();
 
             Assert.NotNull(sample);
             Assert.IsType<SampleClassWithInterface>(sample);
             Assert.Equal(1, sample.DoSomething());
+
+            Container.Clear();
         }
 
         [Fact]
         public void CanRetrieveTypeWithDependency()
         {
-            try
-            {
-                Container.Add<ISampleInterface, SampleClassWithInterface>();
-            }
-            catch (InvalidOperationException)
-            {
-                // Exception because other method might have registered
-                // the service before this test was run
-            }
-
+            Container.Add<ISampleInterface, SampleClassWithInterface>();
             Container.Add<SampleClassWithDependency>();
 
-            var sample = Container.Get<SampleClassWithDependency>();
+            SampleClassWithDependency sample = Container.Get<SampleClassWithDependency>();
 
             Assert.NotNull(sample);
 
-            var sampleInterface = sample.GetSampleInterface();
+            ISampleInterface sampleInterface = sample.GetSampleInterface();
 
             Assert.NotNull(sampleInterface);
             Assert.Equal(1, sampleInterface.DoSomething());
+
+            Container.Clear();
+        }
+
+        [Fact]
+        public void CanAddSingleInstance()
+        {
+            SampleClass sampleClass = new SampleClass();
+
+            Container.Add(sampleClass);
+
+            SampleClass retrievedSampleClass = Container.Get<SampleClass>();
+
+            Assert.NotNull(retrievedSampleClass);
+            Assert.Equal(1, retrievedSampleClass.DoSomething());
+
+            Container.Clear();
         }
     }
 }

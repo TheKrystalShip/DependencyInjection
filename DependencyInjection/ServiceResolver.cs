@@ -86,5 +86,23 @@ namespace TheKrystalShip.DependencyInjection
 
             _store.Add(type, implementation);
         }
+
+        public void Register<T>(T instance)
+        {
+            Type type = typeof(T);
+
+            if (_store.ContainsKey(type))
+            {
+                throw new InvalidOperationException($"A service of type {instance} has already been registered");
+            }
+
+            _store.Add(type, instance);
+        }
+
+        public void Clear()
+        {
+            _store.Clear();
+            _bindings.Clear();
+        }
     }
 }
